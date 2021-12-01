@@ -15,8 +15,8 @@ class VendorsController extends Controller
      */
     public function index()
     {
-        //
-        return vendor::all()->toArray();
+        $vendors = Vendor::all();
+        return view('vendors.index')->with(['vendors'=>$vendors]);
     }
 
     /**
