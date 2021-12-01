@@ -13,7 +13,7 @@ class VendorsTableSeeder extends Seeder
      *
      * @return void
      */
-        public function generateRandomString($length = 10) {
+    public function generateRandomString($length = 10) {
         $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString = '';
@@ -22,7 +22,7 @@ class VendorsTableSeeder extends Seeder
         }
         return $randomString;
     }
-        public function generateRandomName() {
+    public function generateRandomName() {
         $first_name = $this->generateRandomString(rand(2, 15));
         $first_name = strtolower($first_name);
         $first_name = ucfirst($first_name);
@@ -32,7 +32,7 @@ class VendorsTableSeeder extends Seeder
         $name = $first_name . " ". $last_name;
         return $name;
     }
-        public function generateRandomCountry() {
+    public function generateRandomCountry() {
         $country = ['義大利', '英國','德國','美國','日本'];
         return $country[rand(0, count($country)-1)];
 
@@ -92,7 +92,7 @@ class VendorsTableSeeder extends Seeder
         ];
         return $cities[rand(0, count($cities)-1)];
     }*/
-        public function run()
+    public function run()
     {
         for ($i=0; $i<25; $i++) {
             $vendor= $this->generateRandomName();
@@ -100,6 +100,7 @@ class VendorsTableSeeder extends Seeder
             //$founded_time = $this->generateRandomZone();
             //$home = $city . "球場";
             $random_datetime = Carbon::now()->subMinutes(rand(1, 55));
+            //$founded_time = Carbon::now()->subYears(rand(73, 121))->subMonths(rand(0, 12))->subRealDays(rand(0,31));
 
 
             DB::table('vendors')->insert([
