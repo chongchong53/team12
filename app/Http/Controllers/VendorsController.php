@@ -48,7 +48,8 @@ class VendorsController extends Controller
      */
     public function show($id)
     {
-        //
+        $vendor= Vendor::findOrFail($id);
+        return view('vendors.show')->with(['vendor'=>$vendor]);
     }
 
     /**
@@ -59,7 +60,8 @@ class VendorsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $vendor = Vendor::findOrFail($id);
+        return view('vendors.edit')->with(['vendor'=>$vendor]);
     }
 
     /**
@@ -71,7 +73,14 @@ class VendorsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $vendor = Vendor::findOrFail($id);
+
+        $vendor->vendor = $request->input('vendor');
+        $vendor->country = $request->input('country');
+        $vendor->founded_time = $request->input('founded_time');
+        $vendor->save();
+
+        return redirect('vendors');
     }
 
     /**

@@ -48,7 +48,8 @@ class CarsController extends Controller
      */
     public function show($id)
     {
-        //
+        $car = Car::findOrFail($id);
+        return view('cars.show')->with(['car'=>$car]);
     }
 
     /**
@@ -59,7 +60,8 @@ class CarsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $car = Car::findOrFail($id);
+        return view('cars.edit')->with(['car'=>$car]);
     }
 
     /**
@@ -71,7 +73,16 @@ class CarsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $car = Car::findOrFail($id);
+
+        $car->car = $request->input('car');
+        $car->vid = $request->input('vid');
+        $car->selling_price = $request->input('selling_price');
+        $car->displacement = $request->input('displacement');
+        $car->energy_consumption = $request->input('energy_consumption');
+        $car->save();
+
+        return redirect('cars');
     }
 
     /**

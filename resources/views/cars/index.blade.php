@@ -10,7 +10,8 @@
         <th>編號</th>
         <th>汽車</th>
         <th>廠牌</th>
-        <th>操作</th>
+        <th>操作1</th>
+        <th>操作2</th>
     </tr>
     @foreach($cars as $car)
         <tr>
@@ -22,6 +23,11 @@
                 詳細
             </a>
            </td>
+            <td>
+                <a href = "cars/{{$car -> id}}/edit">
+                    修改
+                </a>
+            </td>
         </tr>
     @endforeach
 </table>
