@@ -25,7 +25,8 @@ class CarsController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('cars.create');
     }
 
     /**
@@ -36,8 +37,21 @@ class CarsController extends Controller
      */
     public function store(Request $request)
     {
-        //
-
+      $car = $request ->input('car');
+      $vid = $request ->input('vid');
+      $selling_price = $request ->input('selling_price');
+      $displacement = $request ->input('displacement');
+      $energy_consumption = $request ->input('energy_consumption');
+      Car ::create(
+          [
+              'car' => $car,
+              'vid' => $vid,
+              'selling_price' => $selling_price,
+              'displacement' => $displacement,
+              'energy_consumption' => $energy_consumption
+          ]
+      );
+      return redirect('cars');
     }
 
     /**
@@ -93,6 +107,8 @@ class CarsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $car = Car::findOrFail($id);
+        $car->delete();
+        return redirect('cars');
     }
 }

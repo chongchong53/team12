@@ -11,6 +11,7 @@
         <th>廠牌</th>
         <th>操作1</th>
         <th>操作2</th>
+        <th>操作3</th>
     </tr>
     @foreach($vendors as $vendor)
         <tr>
@@ -25,6 +26,13 @@
                 <a href = "vendors/{{$vendor -> id}}/edit">
                     修改
                 </a>
+            </td>
+            <td>
+                <form method ="post" action="vendors/{{$vendor->id}}">
+                    @csrf
+                    @method("delete")
+                    <input type="submit" value="刪除"/>
+                </form>
             </td>
         </tr>
     @endforeach

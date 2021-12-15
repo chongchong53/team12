@@ -91,6 +91,8 @@ class VendorsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $vendor = Vendor::findOrFail($id);
+        $vendor->delete();
+        return redirect('vendors');
     }
 }

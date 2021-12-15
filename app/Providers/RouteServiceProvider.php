@@ -43,8 +43,8 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
 
-            Route::pattern('car','[0-9]+');
-            Route::pattern('vendor','[0-9]+');
+            Route::pattern('cars','[0-9]+');
+            Route::pattern('vendors','[0-9]+');
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
