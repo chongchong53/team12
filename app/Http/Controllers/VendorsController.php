@@ -26,7 +26,7 @@ class VendorsController extends Controller
      */
     public function create()
     {
-        //
+        return view('vendors.create');
     }
 
     /**
@@ -37,7 +37,17 @@ class VendorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $vendor = $request ->input('vendor');
+        $country = $request ->input('country');
+        $founded_time = $request ->input('founded_time');
+        Vendor ::create(
+            [
+                'vendor' => $vendor,
+                'country' => $country,
+                'founded_time' => $founded_time,
+            ]
+        );
+        return redirect('vendors');
     }
 
     /**

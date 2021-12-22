@@ -5,6 +5,9 @@
 </head>
 <body>
 <h1>顯示單一汽車的詳細資料</h1>
+
+    <input type ="button" onclick="history.back()" value="顯示所有車輛資料"></input>
+
 <table border="1">
     <tr>
         <td>編號</td>

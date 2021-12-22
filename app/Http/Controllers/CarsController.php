@@ -14,7 +14,7 @@ class CarsController extends Controller
      */
     public function index()
     {
-        $cars = Car::all();
+        $cars = Car::all()->sortBy('vid',SORT_REGULAR,false);
         return view('cars.index')->with(['cars'=>$cars ]);
     }
 
@@ -110,5 +110,10 @@ class CarsController extends Controller
         $car = Car::findOrFail($id);
         $car->delete();
         return redirect('cars');
+    }
+    public function senior()
+    {
+        $cars = Car::senior()->get();
+        return view('cars.index', ['cars' => $cars]);
     }
 }

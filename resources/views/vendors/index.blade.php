@@ -5,6 +5,15 @@
 </head>
 <body>
 <h1>顯示所有廠牌資料</h1>
+<tr>
+    <th>
+        <a href = "{{route('cars.index')}}">所有車輛資料</a>
+        &emsp13;
+        <a href = "{{route('vendors.create')}}">新增廠牌資料</a>
+        &emsp13;
+    </th>
+
+</tr>
 <table border="1">
     <tr>
         <th>編號</th>

@@ -5,6 +5,16 @@
 </head>
 <body>
 <h1>顯示所有車輛資料</h1>
+<tr>
+
+        <a href = "{{route('vendors.index')}}">所有廠牌資料</a>
+        &emsp13;
+        <a href = "{{route('cars.create')}}">新增車輛資料</a>
+        &emsp13;
+        <a href = "{{route('cars.senior')}}">售價一千萬元的汽車</a>
+        &emsp13;
+
+</tr>
 <table border="1">
     <tr>
         <th>編號</th>
@@ -18,7 +28,7 @@
         <tr>
             <td>{{$car->id}}</td>
             <td>{{$car->car}}</td>
-            <td>{{$car->vid}}</td>
+            <td>{{$car->vendor->vendor}}</td>
            <td>
             <a href = "cars/{{$car -> id}}">
                 詳細

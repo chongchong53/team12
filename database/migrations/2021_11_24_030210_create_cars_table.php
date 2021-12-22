@@ -16,11 +16,12 @@ class CreateCarsTable extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->string ('car', 191)->comment('汽車名稱');
-            $table->tinyInteger( 'vid')->unsigned()->comment('廠牌');
+            $table->foreignId( 'vid')->comment('廠牌');
             $table->integer('selling_price')->unsigned()->comment('售價');
             $table->integer('displacement')->unsigned()->nullable()-> comment('排氣量');
             $table->integer('energy_consumption')->unsigned()->nullable()->comment('能耗');
             $table->timestamps();
+            $table->foreign('vid') ->references('id')->on('vendors')->onDelete('cascade');
         });
     }
 
