@@ -37,61 +37,7 @@ class VendorsTableSeeder extends Seeder
         return $country[rand(0, count($country)-1)];
 
     }
-        /*public function generateRandomCity() {
-        $cities = [
-            '伯明罕',
-            '安克拉治',
-            '鳳凰城',
-            '小岩城',
-            '洛杉磯',
-            '丹佛',
-            '橋港',
-            '威明頓',
-            '傑克孫維',
-            '亞特蘭大',
-            '檀香山',
-            '波夕',
-            '芝加哥',
-            '印第安納波利斯',
-            '狄蒙',
-            '威奇托',
-            '路易維爾',
-            '紐奧良',
-            '波特蘭',
-            '巴爾的摩',
-            '波士頓',
-            '底特律',
-            '明尼亞波利斯',
-            '傑克森',
-            '堪薩斯城',
-            '比靈斯',
-            '奧馬哈',
-            '拉斯維加斯',
-            '曼徹斯特',
-            '紐華克',
-            '阿布奎基',
-            '紐約',
-            '夏洛特',
-            '法哥',
-            '哥倫布',
-            '奧克拉荷馬市',
-            '波特蘭',
-            '費城',
-            '普羅維登斯',
-            '哥倫比亞',
-            '蘇瀑',
-            '曼非斯',
-            '休斯頓',
-            '鹽湖城',
-            '伯靈頓',
-            '維吉尼亞海灘',
-            '西雅圖',
-            '查爾斯頓',
-            '密爾沃基',
-            '夏安'
-        ];
-        return $cities[rand(0, count($cities)-1)];
-    }*/
+
     public function run()
     {
         for ($i=0; $i<25; $i++) {
@@ -107,7 +53,6 @@ class VendorsTableSeeder extends Seeder
                 'vendor' => $vendor,
                 'country' => $country,
                 'founded_time' => rand(1900, 2000),
-                //'home' => $home,
                 'created_at' => $random_datetime,
                 'updated_at' => $random_datetime
             ]);

@@ -17,4 +17,8 @@ class Vendor extends Model
     {
         return $this->hasMany('App\Models\Car','vid');
     }
+    public function scopecountry($query, $country)
+    {
+        $query->where('country', '=', $country);
+    }
 }

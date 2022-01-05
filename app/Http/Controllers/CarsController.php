@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\Vendor;
 use Illuminate\Http\Request;
 
 class CarsController extends Controller
@@ -25,8 +26,8 @@ class CarsController extends Controller
      */
     public function create()
     {
-
-        return view('cars.create');
+        $vendors = Vendor::all()->sortBy('id');
+        return view('cars.create')->with(['vendors'=>$vendors ]);
     }
 
     /**
@@ -75,7 +76,8 @@ class CarsController extends Controller
     public function edit($id)
     {
         $car = Car::findOrFail($id);
-        return view('cars.edit')->with(['car'=>$car]);
+        $vendors = Vendor::all()->sortBy('id');
+        return view('cars.edit')->with(['car'=>$car , 'vendors'=>$vendors]);
     }
 
     /**
@@ -115,5 +117,53 @@ class CarsController extends Controller
     {
         $cars = Car::senior()->get();
         return view('cars.index', ['cars' => $cars]);
+    }
+    public function api_cars()
+    {
+        return Car::all();
+    }
+    public function api_update(Request $request)
+    {
+        $car = Car::find($request->input('id'));
+        if ($car == null)
+        {
+            return response()->json([
+                'status' => 0,
+            ]);
+        }
+        $car->car = $request->input('car');
+        $car->vid = $request->input('vid');
+        $car->selling_price = $request->input('selling_price');
+        $car->displacement = $request->input('displacement');
+        $car->energy_consumption = $request->input('energy_consumption');
+
+        if ($car->save())
+        {
+            return response()->json([
+                'status' => 1,
+            ]);
+        } else {
+            return response()->json([
+                'status' => 0,
+            ]);
+        }
+    }
+    public function api_delete(Request $request)
+    {
+        $car = Car::find($request->input('id'));
+
+        if ($car == null)
+        {
+            return response()->json([
+                'status' => 0,
+            ]);
+        }
+
+        if ($car->delete())
+        {
+            return response()->json([
+                'status' => 1,
+            ]);
+        }
     }
 }

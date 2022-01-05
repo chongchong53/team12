@@ -26,6 +26,7 @@ class VendorsController extends Controller
      */
     public function create()
     {
+
         return view('vendors.create');
     }
 
@@ -104,5 +105,79 @@ class VendorsController extends Controller
         $vendor = Vendor::findOrFail($id);
         $vendor->delete();
         return redirect('vendors');
+    }
+    public function italy()
+    {
+        $vendors = Vendor::country('義大利')->get();
+        return view('vendors.index', ['vendors'=>$vendors]);
+    }
+    public function uk()
+    {
+        $vendors = Vendor::country('英國')->get();
+        return view('vendors.index', ['vendors'=>$vendors]);
+    }
+    public function germany()
+    {
+        $vendors = Vendor::country('德國')->get();
+        return view('vendors.index', ['vendors'=>$vendors]);
+    }
+    public function usa()
+    {
+        $vendors = Vendor::country('美國')->get();
+        return view('vendors.index', ['vendors'=>$vendors]);
+    }
+    public function japan()
+    {
+        $vendors = Vendor::country('日本')->get();
+        return view('vendors.index', ['vendors'=>$vendors]);
+    }
+    public function api_vendors()
+    {
+        return Vendor::all();
+    }
+
+    public function api_update(Request $request)
+    {
+        $vendor = Vendor::find($request->input('id'));
+        if ($vendor == null)
+        {
+            return response()->json([
+                'status' => 0,
+            ]);
+        }
+
+        $vendor->vendor = $request->input('vendor');
+        $vendor->country = $request->input('country');
+        $vendor->founded_time = $request->input('founded_time');
+        if ($vendor->save())
+        {
+            return response()->json([
+                'status' => 1,
+            ]);
+        } else {
+            return response()->json([
+                'status' => 0,
+            ]);
+        }
+    }
+
+    public function api_delete(Request $request)
+    {
+        $vendor = Vendor::find($request->input('id'));
+
+        if ($vendor == null)
+        {
+            return response()->json([
+                'status' => 0,
+            ]);
+        }
+
+        if ($vendor->delete())
+        {
+            return response()->json([
+                'status' => 1,
+            ]);
+        }
+
     }
 }

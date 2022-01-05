@@ -17,7 +17,6 @@ class CreateVendorsTable extends Migration
             $table->id();
             $table->string('vendor')->comment('廠牌');
             $table->string('country')->comment('國家');
-            //$table->date('founded_time')->comment('創立時間');
             $table->integer('founded_time')->unsigned()->comment('創立時間');
             $table->timestamps();
         });

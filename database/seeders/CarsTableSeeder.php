@@ -36,11 +36,8 @@ class CarsTableSeeder extends Seeder
         for ($i=0; $i<500; $i++)
         {
             $car = $this->generateRandomName();
-            //$position = $this->generateRandomPosition();
-            //$nationality = $this->generateRandomNationality();
             $random_datetime = Carbon::now()->subMinutes(rand(1, 55));
-            //$birthdate = Carbon::now()->subYears(rand(48, 60))->subMonths(rand(0, 12))->subRealDays(rand(0,31));
-            //$onboarddate = Carbon::now()->subYears(rand(18, 30))->subMonths(rand(0, 12))->subRealDays(rand(0,31));
+
             DB::table('cars')->insert([
                 'car' => $car,
                 'vid' => rand(1, 25),
