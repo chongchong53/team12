@@ -1,9 +1,3 @@
-<!--<html>
-<head>
-    <meta charset="UTF-8/">
-    <title>顯示所有車輛資料</title>
-</head>
-<body>-->
 @extends('app')
 @section('title', '顯示所有汽車資料')
 
@@ -49,9 +43,6 @@
 
                 </td>
             </tr>
-@endforeach
-</table>
-<!--</body>
-</html>
--->
+        @endforeach
+    </table>
 @endsection

@@ -1,9 +1,3 @@
-<!--<html>
-<head>
-    <meta charset="UTF-8"/>
-    <title>顯示單一廠牌的編輯表單</title>
-</head>
-<body>-->
 @extends('app')
 @section('title', '修改一筆廠牌資料')
 
@@ -45,7 +39,3 @@
 
     </form>
 @endsection
-<!--
-</body>
-</html>
--->

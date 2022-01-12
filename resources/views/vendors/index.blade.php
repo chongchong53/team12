@@ -1,9 +1,3 @@
-<!--<html>
-<head>
-    <meta charset="UTF-8/">
-    <title>顯示所有廠牌資料</title>
-</head>
-<body>-->
 @extends('app')
 @section('title', '顯示所有廠牌資料')
 
@@ -15,15 +9,7 @@
     <a href="{{ route('vendors.germany') }}">德國</a>
     <a href="{{ route('vendors.usa') }}">美國</a>
     <a href="{{ route('vendors.japan') }}">日本</a>
-    <!--<tr>
-        <th>
-            <a href = "{{route('cars.index')}}">所有車輛資料</a>
-            &emsp13;
-            <a href = "{{route('vendors.create')}}">新增廠牌資料</a>
-            &emsp13;
-        </th>
 
-    </tr>-->
     <table border="1">
         <tr>
             <th>編號</th>
@@ -59,6 +45,3 @@
         @endforeach
     </table>
 @endsection
-<!--</body>
-</html>
--->

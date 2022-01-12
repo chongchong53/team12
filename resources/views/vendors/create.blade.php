@@ -1,11 +1,3 @@
-<!--
-<html>
-<head>
-    <meta charset="UTF-8"/>
-    <title>新增單一廠牌的編輯表單</title>
-</head>
-<body>
--->
 @extends('app')
 @section('title', '新增一筆廠牌資料')
 
@@ -22,7 +14,6 @@
             </tr>
             <tr>
                 <td>國家</td>
-                <!--<td><input type="text" name="country"/> </td> -->
                 <td>
                     <select name="country">
                         <option value="義大利">義大利</option>
@@ -42,7 +33,3 @@
 
     </form>
 @endsection
-<!--
-</body>
-</html>
--->

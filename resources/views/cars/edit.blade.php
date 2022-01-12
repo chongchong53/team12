@@ -1,8 +1,3 @@
-<!--<html>
-<head>
-    <meta charset="UTF-8"/>
-    <title>顯示單一汽車的表單</title>
-</head>-->
 @extends('app')
 @section('title', '編輯汽車資料')
 
@@ -52,8 +47,4 @@
         <input type="submit" value="修改"/><input type="reset" value="重新輸入"/>
 
     </form>
-    @endsection
-<!--
-</body>
-</html>
--->
+@endsection

@@ -1,9 +1,3 @@
-<!--<html>
-<head>
-    <meta charset="UTF-8"/>
-    <title>新增單一汽車的表單</title>
-</head>
-<body>-->
 @extends('app')
 @section('title', '新增一筆汽車資料')
 
@@ -45,5 +39,3 @@
 
     </form>
 @endsection
-<!--</body>
-</html>-->

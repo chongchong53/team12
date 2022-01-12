@@ -1,9 +1,3 @@
-<!--<html>
-<head>
-    <meta charset="UTF-8"/>
-    <title>顯示單一汽車的詳細資料</title>
-</head>
-<body>-->
 @extends('app')
 @section('title', '顯示一筆汽車詳細資料')
 
@@ -39,7 +33,3 @@
         </tr>
     </table>
 @endsection
-<!--
-</body>
-</html>
--->
