@@ -24,16 +24,8 @@
                 <td>{{$vendor->id}}</td>
                 <td>{{$vendor->vendor}}</td>
                 <td>{{$vendor->country}}</td>
-                <td>
-                    <a href = "vendors/{{$vendor -> id}}">
-                        詳細
-                    </a>
-                </td>
-                <td>
-                    <a href = "vendors/{{$vendor -> id}}/edit">
-                        修改
-                    </a>
-                </td>
+                <td><a href="{{ route('vendors.show',['vendor'=>$vendor->id]) }}">詳細</a> </td>
+                <td><a href="{{ route('vendors.edit',['vendor'=>$vendor->id]) }}">修改</a> </td>
                 <td>
                     <form method ="post" action="vendors/{{$vendor->id}}">
                         @csrf

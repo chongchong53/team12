@@ -24,16 +24,8 @@
                 <td>{{$car->car}}</td>
                 <td>{{$car->vendor->vendor}}</td>
                 <td>{{$car->selling_price}}</td>
-               <td>
-                <a href = "cars/{{$car -> id}}">
-                    詳細
-                </a>
-               </td>
-                <td>
-                    <a href = "cars/{{$car -> id}}/edit">
-                        修改
-                    </a>
-                </td>
+                <td><a href="{{ route('cars.show',['car'=>$car->id]) }}">詳細</a> </td>
+                <td><a href="{{ route('cars.edit',['car'=>$car->id]) }}">修改</a> </td>
                 <td>
                     <form method ="post" action="cars/{{$car->id}}">
                         @csrf
